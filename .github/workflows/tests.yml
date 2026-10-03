@@ -3,7 +3,7 @@ name: tests
 on: [push, pull_request]
 
 jobs:
-  pytest:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,5 +13,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install -e ".[dev]"
+      - run: pip install -e ".[dev]" ruff
+      - run: ruff check .
       - run: pytest -q
