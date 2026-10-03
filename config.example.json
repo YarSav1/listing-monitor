@@ -1,0 +1,28 @@
+{
+  "interval_minutes": 10,
+  "db": "seen.sqlite",
+  "sources": [
+    {
+      "type": "ebay_api",
+      "name": "ebay",
+      "client_id": "your-ebay-app-id",
+      "client_secret": "your-ebay-cert-id",
+      "marketplace": "EBAY_GB",
+      "category_ids": "11116"
+    },
+    {
+      "type": "css",
+      "name": "books",
+      "search_url": "https://books.toscrape.com/catalogue/category/books/{q}/index.html",
+      "item": "article.product_pod",
+      "title": "h3 a",
+      "link": "h3 a",
+      "price": ".price_color",
+      "currency": "GBP"
+    }
+  ],
+  "queries": [
+    {"text": "silver coin", "include": ["silver"], "exclude": ["replica", "copy"], "sources": ["ebay"]},
+    {"text": "mystery_3", "max_price": 30, "sources": ["books"]}
+  ]
+}
