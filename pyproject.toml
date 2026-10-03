@@ -1,0 +1,15 @@
+[project]
+name = "listing-monitor"
+version = "0.1.0"
+description = "Watch marketplaces for new listings that match your keywords and get them in Telegram"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["httpx>=0.27", "beautifulsoup4>=4.12"]
+
+[project.optional-dependencies]
+browser = ["playwright>=1.45"]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
